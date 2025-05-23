@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heather - thời trang là phong cách</title>
+  <meta name="description" content="Heather - thời trang là phong cách">
+  <meta name="keywords" content="thời trang, phong cách, thời trang phong cách, thời trang hiện đại">
+
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./assets/images/logo/favicon.ico" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/index.css">
+  <link rel="stylesheet" href="./assets/css/cart.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<body>
+     <!--
+    - HEADER: Phần đầu trang: chứa tiêu đề, logo, thanh tìm kiếm, menu điều hướng
+  -->
+
+  <header>
+
+    <div class="header-top">
+
+      <div class="container">
+
+        <ul class="header-social-container">
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+        <div class="header-alert-news">
+          <p>
+            <b>Miễn phí giao hàng</b>
+            Đặt đơn hàng từ 500K
+          </p>
+        </div>
+
+        <div class="header-top-actions">
+
+          <select name="currency">
+
+            <option value="vnd">VND &#8363;</option>
+            <option value="usd">USD &dollar;</option>
+
+          </select>
+
+          <select name="language">
+
+            <option value="vi-VN">Tiếng Việt</option>
+            <option value="en-US">English</option>
+
+          </select>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="header-main">
+
+      <ul class="breadcrumbCate">
+        <li>
+            <a href="/">Trang chủ</a>
+        </li>
+        <li>
+            <a class="" href="/productCategory.html">Đầm & váy</a>
+        </li>
+        <li>
+            <a class="" href="#">Đầm phối cổ nơ, chân nhún tầng họa tiết</a>
+        </li>
+      </ul>
+
+      <div class="container">
+
+        <a href="/" class="header-logo">
+          <img src="./assets/images/logo/logo.svg" alt="Anon's logo" width="120" height="36">
+        </a>
+
+        <div class="header-search-container">
+
+          <input type="search" name="search" class="search-field" placeholder="Tìm kiếm sản phẩm...">
+
+          <button class="search-btn">
+            <ion-icon name="search-outline"></ion-icon>
+          </button>
+
+        </div>
+
+        <div class="header-user-actions">
+
+          <a href="/login&signup.html">
+            <button class="action-btn">
+              <ion-icon name="person-outline"></ion-icon>
+            </button>
+          </a>
+          
+          <a href="/wishlist.html">
+            <button class="action-btn">
+              <ion-icon name="heart-outline"></ion-icon>
+              <span class="count">0</span>
+            </button>
+          </a>
+
+          <a href="/cart.html">
+            <button class="action-btn">
+              <ion-icon name="bag-handle-outline"></ion-icon>
+              <span id="count-cart" class="count">1</span>
+            </button>
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <nav class="desktop-navigation-menu">
+
+      <div class="container">
+
+        <ul class="desktop-menu-category-list">
+
+          <li class="menu-category">
+            <a href="index.html" class="menu-title">Trang chủ</a>
+          </li>
+
+          <li class="menu-category">
+            <a href="#" class="menu-title">Danh mục</a>
+
+            <div class="dropdown-panel">
+
+              <ul class="dropdown-panel-list">
+
+                <li class="menu-title">
+                  <a href="#">Thời trang nữ</a>
+                </li>
+
+                <li class="panel-list-item">
+                  <a href="#">Trang trọng</a>
+                </li>
+
+                <li class="panel-list-item">
+                  <a href="#">Thường ngày</a>
+                </li>
+
+                <li class="panel-list-item">
+                  <a href="#">
+                    <img src="./assets/images/Banner-01.jpg" alt="women's fashion" width="250" height="119">
+                  </a>
+                </li>
+
+              </ul>
+
+            </div>
+          </li>
+
+          <li class="menu-category">
+            <a href="#" class="menu-title">Thời trang nữ</a>
+
+            <ul class="dropdown-list">
+
+              <li class="dropdown-item">
+                <a href="#" class="submenu-title">Đầm & váy</a>
+              </li>
+  
+              <li class="dropdown-item">
+                <a href="#" class="submenu-title">Áo</a>
+              </li>
+  
+              <li class="dropdown-item">
+                <a href="#" class="submenu-title">Chân váy</a>
+              </li>
+  
+              <li class="dropdown-item">
+                <a href="#" class="submenu-title">Quần</a>
+              </li>
+  
+              <li class="dropdown-item">
+                <a href="#" class="submenu-title">Túi xách</a>
+              </li>
+  
+              <li class="dropdown-item">
+                <a href="#" class="submenu-title">Giày / dép</a>
+              </li>
+
+            </ul>
+          </li>
+
+          <li class="menu-category">
+            <a href="#" class="menu-title">Blog</a>
+          </li>
+
+          <li class="menu-category">
+            <a href="#" class="menu-title">Ưu đãi nóng</a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </nav>
+
+    <div class="mobile-bottom-navigation">
+
+      <button class="action-btn" data-mobile-menu-open-btn>
+        <ion-icon name="menu-outline"></ion-icon>
+      </button>
+
+      <button class="action-btn">
+        <ion-icon name="bag-handle-outline"></ion-icon>
+
+        <span class="count">0</span>
+      </button>
+
+      <button class="action-btn">
+        <ion-icon name="home-outline"></ion-icon>
+      </button>
+
+      <button class="action-btn">
+        <ion-icon name="heart-outline"></ion-icon>
+
+        <span class="count">0</span>
+      </button>
+
+      <button class="action-btn" data-mobile-menu-open-btn>
+        <ion-icon name="grid-outline"></ion-icon>
+      </button>
+
+    </div>
+
+    <nav class="mobile-navigation-menu  has-scrollbar" data-mobile-menu>
+
+      <div class="menu-top">
+        <h2 class="menu-title">Menu</h2>
+
+        <button class="menu-close-btn" data-mobile-menu-close-btn>
+          <ion-icon name="close-outline"></ion-icon>
+        </button>
+      </div>
+
+      <ul class="mobile-menu-category-list">
+
+        <li class="menu-category">
+          <a href="#" class="menu-title">Trang chủ</a>
+        </li>
+
+        <li class="menu-category">
+
+          <button class="accordion-menu" data-accordion-btn>
+            <p class="menu-title">Thời trang nữ</p>
+
+            <div>
+              <ion-icon name="add-outline" class="add-icon"></ion-icon>
+              <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+            </div>
+          </button>
+
+          <ul class="submenu-category-list" data-accordion>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title">Đầm & váy</a>
+            </li>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title">Áo</a>
+            </li>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title">Chân váy</a>
+            </li>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title">Quần</a>
+            </li>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title">Túi xách</a>
+            </li>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title">Giày / dép</a>
+            </li>
+
+          </ul>
+
+        </li>
+
+        <li class="menu-category">
+
+          <button class="accordion-menu" data-accordion-btn>
+            <p class="menu-title">Trang sức</p>
+
+            <div>
+              <ion-icon name="add-outline" class="add-icon"></ion-icon>
+              <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+            </div>
+          </button>
+
+          <ul class="submenu-category-list" data-accordion>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title">Nhẫn</a>
+            </li>
+            
+            <li class="submenu-category">
+              <a href="#" class="submenu-title">Bông tai</a>
+            </li>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title">Vòng cổ</a>
+            </li>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title">Vòng tay</a>
+            </li>
+
+          </ul>
+
+        </li>
+
+        <li class="menu-category">
+          <a href="#" class="menu-title">Blog</a>
+        </li>
+
+        <li class="menu-category">
+          <a href="#" class="menu-title">Ưu đãi nóng</a>
+        </li>
+
+      </ul>
+
+      <div class="menu-bottom">
+
+        <ul class="menu-category-list">
+
+          <li class="menu-category">
+
+            <button class="accordion-menu" data-accordion-btn>
+              <p class="menu-title">Ngôn ngữ</p>
+
+              <ion-icon name="caret-back-outline" class="caret-back"></ion-icon>
+            </button>
+
+            <ul class="submenu-category-list" data-accordion>
+              
+              <li class="submenu-category">
+                <a href="#" class="submenu-title">Tiếng Việt</a>
+              </li>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title">English</a>
+              </li>
+
+            </ul>
+
+          </li>
+
+          <li class="menu-category">
+            <button class="accordion-menu" data-accordion-btn>
+              <p class="menu-title">Tiền tệ</p>
+              <ion-icon name="caret-back-outline" class="caret-back"></ion-icon>
+            </button>
+
+            <ul class="submenu-category-list" data-accordion>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title">VND &#8363;</a>
+              </li>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title">USD &dollar;</a>
+              </li>
+
+            </ul>
+          </li>
+
+        </ul>
+
+        <ul class="menu-social-container">
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </nav>
+
+  </header> 
+
+
+
+
+  <!--
+    - CART: Phần giỏ hàng: hiển thị danh sách sản phẩm trong giỏ hàng
+  -->
+  <main class="cart">
+
+    <section>
+      <div class="container">
+        <div class="title-wrapper center">
+          <h3 class="title-head color--salmon-pink">Giỏ hàng của bạn</h3>
+          <p class="title-main">có 1 sản phẩm trong giỏ hàng của bạn</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cart-list">
+      <div class="cart-container">
+
+        <div class="cart-layout">
+
+        <!-- Cart Table -->
+        <div class="cart-table">
+          <div class="cart-row cart-header center">
+            <div class="cart-col image">Hình ảnh</div>
+            <div class="cart-col info">Thông tin</div>
+            <div class="cart-col price">Giá tiền</div>
+            <div class="cart-col quantity">Số lượng</div>
+            <div class="cart-col option">Tùy chọn</div>
+          </div>
+      
+          <div class="cart-row center">
+            <div class="cart-col image flex jcCenter"><img src="/assets/images/products/đầm/đầm-01-1.jpeg" alt="Sản phẩm" /></div>
+            <div class="cart-col info">
+              <p class="product-name">Áo thun local brand</p>
+              <p class="product-desc">Size M, Màu đỏ</p>
+            </div>
+
+            <div class="cart-col price"><span class="product-price" data-price="200000">200,000₫</span></div>
+
+            <div class="cart-col quantity">
+              <div class="number-picker">
+                <button class="number-picker-btn" data-number-picker-btn="decrease">-</button>
+                <input type="number" class="number-picker-input" value="1" min="1" />
+                <button class="number-picker-btn" data-number-picker-btn="increase">+</button>
+              </div>
+            </div>
+
+            <div class="cart-col option center">Gỡ</div>
+          </div>
+      
+          <!-- Repeat .cart-row for each product -->
+        </div>
+      
+        <!-- Tóm tắt đơn hàng -->
+        <div class="order-summary">
+          <h3>Tóm tắt đơn hàng</h3>
+          <div class="summary-row"><span>Tổng tiền hàng:</span><span class="subtotal">0₫</span></div>
+          <div class="summary-row"><span>Giảm giá:</span><span class="discount">0₫</span></div>
+          <div class="summary-row"><span>Tạm tính:</span><span class="temp-total">0₫</span></div>
+          <div class="summary-row total"><span>Tổng tiền:</span><span class="final-total">0₫</span></div>
+
+          <div class="order-buttons">
+            <button class="btn-primary" id="place-order">Tiến hành đặt hàng</button>
+            <button class="btn-outline" id="buy-more">Mua thêm sản phẩm</button>
+          </div>
+        </div>
+
+        <!-- Modal đặt hàng thành công -->
+        <div class="success-modal" id="successModal">
+          <div class="success-content">
+            <h2>🎉 Cảm ơn bạn!</h2>
+            <p class="success-message">Bạn đã mua thành công <span id="totalItems">0</span> sản phẩm.</p>
+            <button class="btn-primary" onclick="document.getElementById('successModal').classList.remove('active')">Đóng</button>
+          </div>
+        </div>
+
+      </div>
+      
+
+    </section>
+
+<footer>
+
+  <div class="footer-nav">
+
+    <div class="container">
+
+
+      <ul class="footer-nav-list">
+      
+        <li class="footer-nav-item">
+          <h2 class="nav-title">Sản phẩm</h2>
+        </li>
+      
+        <li class="footer-nav-item">
+          <a href="#" class="footer-nav-link">Liên hệ</a>
+        </li>
+      
+        <li class="footer-nav-item">
+          <a href="#" class="footer-nav-link">Giảm giá</a>
+        </li>
+      
+        <li class="footer-nav-item">
+          <a href="#" class="footer-nav-link">Sản phẩm mới</a>
+        </li>
+      
+        <li class="footer-nav-item">
+          <a href="#" class="footer-nav-link">Bán chạy nhất</a>
+        </li>
+      
+        <li class="footer-nav-item">
+          <a href="#" class="footer-nav-link">Bản đồ địa chỉ</a>
+        </li>
+      
+      </ul>
+
+      <ul class="footer-nav-list">
+      
+        <li class="footer-nav-item">
+          <h2 class="nav-title">Cửa hàng</h2>
+        </li>
+              
+        <li class="footer-nav-item">
+          <a href="#" class="footer-nav-link">Giới thiệu</a>
+        </li>
+
+        <li class="footer-nav-item">
+          <a href="#" class="footer-nav-link">Giao hàng</a>
+        </li>
+      
+        <li class="footer-nav-item">
+          <a href="#" class="footer-nav-link">Thông báo pháp lý</a>
+        </li>
+      
+        <li class="footer-nav-item">
+          <a href="#" class="footer-nav-link">Điều khoản và điều kiện</a>
+        </li>
+
+        <li class="footer-nav-item">
+          <a href="#" class="footer-nav-link">Thanh toán an toàn</a>
+        </li>
+      
+      </ul>
+
+      <ul class="footer-nav-list">
+      
+        <li class="footer-nav-item">
+          <h2 class="nav-title">Dịch vụ</h2>
+        </li>
+      
+        <li class="footer-nav-item">
+          <a href="#" class="footer-nav-link">Hoàn tiền</a>
+        </li>
+      
+        <li class="footer-nav-item">
+          <a href="#" class="footer-nav-link">Hỗ trợ trực tuyến</a>
+        </li>
+      
+        <li class="footer-nav-item">
+          <a href="#" class="footer-nav-link">Chính sách đổi trả</a>
+        </li>
+      
+        <li class="footer-nav-item">
+          <a href="#" class="footer-nav-link">Giao hàng trong này</a>
+        </li>
+      
+        <li class="footer-nav-item">
+          <a href="#" class="footer-nav-link">Giao hàng toàn quốc</a>
+        </li>
+      
+      </ul>
+
+      <ul class="footer-nav-list">
+
+        <li class="footer-nav-item">
+          <h2 class="nav-title">Liên Hệ</h2>
+        </li>
+
+        <li class="footer-nav-item flex">
+          <div class="icon-box">
+            <ion-icon name="location-outline"></ion-icon>
+          </div>
+
+          <address class="content">
+            319 đường láng, Đống Đa, Hà Nội
+          </address>
+        </li>
+
+        <li class="footer-nav-item flex">
+          <div class="icon-box">
+            <ion-icon name="call-outline"></ion-icon>
+          </div>
+
+          <a href="tel:0397546310" class="footer-nav-link">0397546310 </a>
+        </li>
+
+        <li class="footer-nav-item flex">
+          <div class="icon-box">
+            <ion-icon name="mail-outline"></ion-icon>
+          </div>
+
+          <a href="mailto:example@gmail.com" class="footer-nav-link">Heather@gmail.com</a>
+        </li>
+
+      </ul>
+
+      <ul class="footer-nav-list">
+
+        <li class="footer-nav-item">
+          <h2 class="nav-title">Theo dõi</h2>
+        </li>
+
+        <li>
+          <ul class="social-link">
+
+            <li class="footer-nav-item">
+              <a href="#" class="footer-nav-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+
+            <li class="footer-nav-item">
+              <a href="#" class="footer-nav-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+
+            <li class="footer-nav-item">
+              <a href="#" class="footer-nav-link">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </a>
+            </li>
+
+            <li class="footer-nav-item">
+              <a href="#" class="footer-nav-link">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+
+          </ul>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+
+    <div class="container">
+
+      <img src="./assets/images/payment.png" alt="payment method" class="payment-img">
+
+      <p class="copyright">
+        Bản quyền &copy; <a href="#">Heather</a> đã đăng ký mọi bản quyền.
+      </p>
+
+    </div>
+
+  </div>
+
+</footer>
+
+</body>
+
+
+
+  <!--
+    - custom js link
+  -->
+  <script src="./assets/js/index.js"></script>
+  <script src="./assets/js/cart.js"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+</html>
