@@ -7,7 +7,7 @@ Heather is a fully responsive ecommerce website, maximum compatiblities in all m
 
 | Newsletter | Homepage | Categories | Product detail | Cart |
 |------------|----------|------------|----------------|------|
-| ![newsletter](demoImage\newsletter.png) | ![homepage](demoImage\homepage.png) | ![categories](demoImage\categories.png) | ![productDetail](demoImage\productDetail.png) | ![cart](demoImage\cart.png) |
+| ![newsletter](./demoImage\newsletter.png) | ![homepage](./demoImage\homepage.png) | ![categories](./demoImage\categories.png) | ![productDetail](./demoImage\productDetail.png) | ![cart](./demoImage\cart.png) |
 
 <!-- ### Newsletter
 
