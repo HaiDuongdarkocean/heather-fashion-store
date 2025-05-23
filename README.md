@@ -3,11 +3,17 @@
 Heather is a fully responsive ecommerce website, maximum compatiblities in all mobile devices, built using HTML, CSS, and JavaScript.
 
 ## Demo
+| Newsletter |
+|------------|
+| ![newsletter](./demoImage/newsletter.png) |
 
+| Homepage | Categories |
+|----------|------------|
+| ![homepage](./demoImage/homepage.png) | ![categories](./demoImage/categories.png) |
 
-| Newsletter | Homepage | Categories | Product detail | Cart |
-|------------|----------|------------|----------------|------|
-| ![newsletter](./demoImage/newsletter.png) | ![homepage](./demoImage/homepage.png) | ![categories](./demoImage/categories.png) | ![productDetail](./demoImage/productDetail.png) | ![cart](./demoImage/cart.png) |
+| Product detail | Cart |
+|----------------|------|
+| ![productDetail](./demoImage/productDetail.png) | ![cart](./demoImage/cart.png) |
 
 <!-- ### Newsletter
 
