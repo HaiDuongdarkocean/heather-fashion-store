@@ -51,7 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
 document.addEventListener("DOMContentLoaded", function () {
   const addToCartButtons = document.querySelectorAll(".modfify-add-cart-btn");
 
@@ -64,9 +63,15 @@ document.addEventListener("DOMContentLoaded", function () {
         name: showcase.dataset.name,
         price: parseFloat(showcase.dataset.price.replace(/\./g, "")),
         image: showcase.dataset.image,
-        color: showcase.querySelector(".color-picker-item.active")?.dataset.color || "default",
-        size: showcase.querySelector(".size-picker-item.active")?.dataset.size || "default",
-        quantity: parseInt(showcase.querySelector(".number-picker-input").value),
+        color:
+          showcase.querySelector(".color-picker-item.active")?.dataset.color ||
+          "default",
+        size:
+          showcase.querySelector(".size-picker-item.active")?.dataset.size ||
+          "default",
+        quantity: parseInt(
+          showcase.querySelector(".number-picker-input").value
+        ),
       };
 
       // Kiểm tra nếu chưa có cart, thì tạo mảng mới

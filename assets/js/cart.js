@@ -72,6 +72,8 @@ document.getElementById("buy-more").addEventListener("click", () => {
   window.location.href = "/"; // hoặc window.location.href = '/products'
 });
 
-document.querySelector("#successModal .btn-primary").addEventListener("click", () => {
-  window.location.href = "/"; // hoặc window.location.href = '/products'
-});
+document
+  .querySelector("#successModal .btn-primary")
+  .addEventListener("click", () => {
+    window.location.href = "/"; // hoặc window.location.href = '/products'
+  });

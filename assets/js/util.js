@@ -115,7 +115,7 @@ export function setupSlider({
   }
 
   const items = container.querySelectorAll(itemSel);
-  
+
   // kiểm tra xem có tồn tại item không
   if (items.length === 0) {
     console.warn("setupSlider: No slider items found.");
@@ -211,9 +211,6 @@ export function setupSlider({
   restartAutoSlide();
 }
 
-
-
-
 /* === THÊM SẢN PHẨM VÀO GIỎ HÀNG ===\
 * Hàm thêm sản phẩm vào giỏ hàng
 * Lưu ý: Giỏ hàng được lưu trong localStorage
@@ -230,7 +227,7 @@ document.addEventListener("click", function (e) {
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    const existing = cart.find(item => item.id === id);
+    const existing = cart.find((item) => item.id === id);
 
     if (existing) {
       existing.quantity += 1;

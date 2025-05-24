@@ -14,7 +14,6 @@ initSearchDropdown({
   products,
 });
 
-
 // accordion: là chiếc đàn nó có thể mở ra và
 // đóng lại thể hiện danh sách của các sản phẩm
 
@@ -46,7 +45,6 @@ for (let i = 0; i < accordionBtn.length; i++) {
   // Log mỗi lần gán event -> kiểm thử
   // console.log(`Đã gán click event cho accordionBtn[${i}]`);
 }
-
 
 /*=== SLIDER ===\
 * Hàm khởi tạo slider 
