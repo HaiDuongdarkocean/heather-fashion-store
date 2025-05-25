@@ -93,7 +93,6 @@ main {
   font-size: 28px;
 }
 
-
 /* Wrapper chính */
 .attr {
   display: flex;
@@ -252,8 +251,8 @@ main {
 }
 
 .action-btn a {
-    text-decoration: none;
-    color: var(--onyx);
+  text-decoration: none;
+  color: var(--onyx);
 }
 
 .buy-btn {
@@ -270,7 +269,6 @@ main {
   -o-transition: var(--transition-timing);
   transition: var(--transition-timing);
 }
-
 
 #count-cart.bump {
   transform: scale(1.3);

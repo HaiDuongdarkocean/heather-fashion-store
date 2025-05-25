@@ -60,7 +60,7 @@
     width: 30px;
     height: 30px;
     background-color: var(--salmon-pink);
-    color: white;
+    color: var(--white);
     font-weight: bold;
     border: none;
     border-radius: 6px;
@@ -70,14 +70,14 @@
   }
   
   .number-picker-btn:hover {
-    background-color: #ff5e75; /* darker pink */
+    background-color: var(--salmon-pink); /* darker pink */
   }
   
-  .number-picker-input {
+  input.number-picker-input {
     width: 50px;
     text-align: center;
     border: none;
-    background-color: var(--cultured);
+    background-color: unset;
     padding: 4px 6px;
     border-radius: 6px;
     -moz-appearance: textfield;
