@@ -110,46 +110,16 @@ main {
   gap: 0.5rem;
 }
 
-.color-picker-item {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: 2px solid var(--spanish-gray);
-  cursor: pointer;
-  transition: border var(--transition-timing),
-    transform var(--transition-timing);
-}
-
-.color-picker-item[data-color="red"] {
-  background-color: hsl(0, 0%, 0%);
-}
-
-.color-picker-item[data-color="blue"] {
-  background-color: hsl(210, 100%, 79%);
-}
-
-.color-picker-item[data-color="green"] {
-  background-color: hsl(296, 92%, 86%);
-}
-
-.color-picker-item[data-color="yellow"] {
-  background-color: hsl(60, 94%, 87%);
-}
-
-.color-picker-item:hover,
-.color-picker-item.active {
-  border-color: var(--eerie-black);
-  transform: scale(1.1);
-}
-
 /* ===== SIZE PICKER ===== */
 .size-picker {
   display: flex;
   gap: 0.5rem;
 }
 
-.size-picker-item {
+.size-picker-item,
+.color-picker-item {
   padding: 0.4rem 0.8rem;
+  margin: 0 0.1rem;
   font-size: var(--fs-6);
   font-weight: var(--weight-500);
   color: var(--onyx);
@@ -161,7 +131,9 @@ main {
 }
 
 .size-picker-item:hover,
-.size-picker-item.active {
+.size-picker-item.active,
+.color-picker-item:hover,
+.color-picker-item.active {
   background-color: var(--salmon-pink);
   color: var(--white);
   transform: scale(1.05);

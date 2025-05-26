@@ -91,12 +91,18 @@ form.sign-in-form {
   background: none;
   outline: none;
   border: none;
+  border-radius: 30px;
   line-height: 1;
   font-weight: 600;
   font-size: 1.1rem;
   color: #333;
-  width: max-content;
+  width: 670%;
   padding: 8px;
+}
+
+.input-field input:focus {
+  border-color: none !important;
+  box-shadow: 0 0 0 0px none !important;
 }
 
 .input-field input::placeholder {

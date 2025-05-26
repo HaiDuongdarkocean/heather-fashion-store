@@ -204,3 +204,7 @@
 .color--salmon-pink {
   color: var(--salmon-pink);
 }
+
+.cart-item .option {
+  cursor: pointer;
+}

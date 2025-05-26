@@ -1,3 +1,43 @@
+import { updateCartCount } from "./util.js";
+
+function renderCartItems() {
+  const cartItems = JSON.parse(localStorage.getItem("cart") || "[]");
+  const container = document.querySelector(".cart-items-container");
+  container.innerHTML = cartItems
+    .map(
+      (item) => `
+    <div class="cart-row cart-item">
+      <div class="cart-col image flex jcCenter">
+        <img src="${item.image}" alt="Sản phẩm">
+      </div>
+      <div class="cart-col info">
+        <p class="product-name">${item.name}</p>
+        <p class="product-desc">Size ${item.size}, Màu ${item.color}</p>
+      </div>
+      <div class="cart-col price">
+        <span class="product-price" data-price="${
+          item.price
+        }">${item.price.toLocaleString("vi-VN")}₫</span>
+      </div>
+      <div class="cart-col quantity">
+        <div class="number-picker">
+          <button class="number-picker-btn" data-number-picker-btn="decrease">-</button>
+          <input type="number" class="number-picker-input" value="${
+            item.quantity
+          }" min="1">
+          <button class="number-picker-btn" data-number-picker-btn="increase">+</button>
+        </div>
+      </div>
+      <div class="cart-col option center">Gỡ</div>
+    </div>
+  `
+    )
+    .join("");
+}
+
+// Gọi hàm này khi trang load
+document.addEventListener("DOMContentLoaded", renderCartItems);
+
 document.addEventListener("DOMContentLoaded", () => {
   const cartContainer = document.querySelector(".cart-layout");
 
@@ -52,6 +92,33 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  document
+    .querySelector(".cart-items-container")
+    .addEventListener("click", function (e) {
+      if (e.target.classList.contains("option")) {
+        const row = e.target.closest(".cart-row");
+        const name = row.querySelector(".product-name").textContent.trim();
+        const desc = row.querySelector(".product-desc").textContent.trim();
+        
+        // Tách size và màu từ desc
+        const size = desc.match(/Size ([^,]+)/)[1].trim();
+        const color = desc.match(/Màu (.+)/)[1].trim();
+
+        // Lấy cart từ localStorage
+        let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+        // Xóa đúng item
+        cart = cart.filter(
+          (item) =>
+            !(item.name === name && item.size === size && item.color === color)
+        );
+        localStorage.setItem("cart", JSON.stringify(cart));
+        // Render lại cart và cập nhật tổng tiền
+        renderCartItems();
+        updateSummary();
+        updateCartCount();
+      }
+    });
+
   updateSummary();
 });
 
@@ -77,3 +144,15 @@ document
   .addEventListener("click", () => {
     window.location.href = "/"; // hoặc window.location.href = '/products'
   });
+
+//buySuccessClose
+document.getElementById("buySuccessClose").addEventListener("click", () => {
+  document.getElementById("successModal").classList.remove("active");
+
+  // clear cart
+  localStorage.removeItem("cart");
+  updateCartCount();
+
+  // Redirect to home or products page
+  window.location.href = "/"; // hoặc window.location.href = '/products'
+});

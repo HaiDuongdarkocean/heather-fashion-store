@@ -1,26 +1,25 @@
 /*=== TÌM KIẾM SẢN PHẨM ===\
 * Khởi tạo dropdown tìm kiếm tự động dựa trên dữ liệu sản phẩm truyền vào
 \=========================*/
-export function initSearchDropdown({
-  inputSelector,
-  resultsSelector,
-  products,
-}) {
-  // Tìm phần tử ô nhập liệu từ selector được truyền vào
+function initSearchDropdown({ inputSelector, resultsSelector, products }) {
+  // Tìm phần tử ô nhập liệu
   const searchInput = document.querySelector(inputSelector);
 
-  // Tìm phần tử container hiển thị kết quả từ selector được truyền vào
+  // Tìm phần tử container
   const resultsContainer = document.querySelector(resultsSelector);
 
-  // Nếu không tìm thấy phần tử ô nhập hoặc container kết quả thì cảnh báo và dừng hàm
   if (!searchInput || !resultsContainer) {
-    console.warn("SearchDropdown: missing input or results container.");
+    console.warn(
+      "SearchDropdown: Không tìm thấy phần tử nhập hoặc container kết quả."
+    );
     return;
   }
 
   // Xử lý khi người dùng nhập dữ liệu vào ô tìm kiếm
   function handleSearchInput(event) {
     const query = event.target.value.trim().toLowerCase(); // Lấy nội dung nhập, xóa khoảng trắng, chuyển về chữ thường
+    console.log(query); // Giá trị khi nhập vào.
+
     clearResults(); // Xóa kết quả cũ trước khi hiển thị mới
 
     if (query.length === 0) return; // Nếu không nhập gì thì không tìm kiếm
@@ -97,7 +96,7 @@ export function initSearchDropdown({
   <!-- Chấm điều hướng slider -->
   <div class="slider-dots"></div> 
 \=================*/
-export function setupSlider({
+function setupSlider({
   containerSel,
   itemSel,
   prevBtnSel,
@@ -240,7 +239,7 @@ document.addEventListener("click", function (e) {
   }
 });
 
-export function updateCartCount() {
+function updateCartCount() {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   const count = cart.reduce((total, item) => total + item.quantity, 0);
   document.getElementById("count-cart").textContent = count;
@@ -249,3 +248,31 @@ export function updateCartCount() {
 
 // Gọi sau khi load trang
 updateCartCount();
+
+function formatNumber(number) {
+  return new Intl.NumberFormat("vi-VN").format(number);
+}
+
+function formatDate(dateString) {
+  const date = new Date(dateString);
+  return date.toLocaleString("vi-VN", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+}
+
+function parsePrice(priceString) {
+  return Number(priceString.replaceAll(".", "").replace(",", "."));
+}
+
+export {
+  initSearchDropdown,
+  setupSlider,
+  updateCartCount,
+  formatNumber,
+  formatDate,
+  parsePrice,
+};

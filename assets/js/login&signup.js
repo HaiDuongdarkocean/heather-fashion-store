@@ -27,7 +27,7 @@ document
     // Mẹo dùng ta dùng if else nếu có khoảng 3 điều kiện
     // Nếu có nhiều điều kiện hơn thì dùng switch case
     if (username === "admin" && password === "123") {
-      window.location.href = "/admin.html";
+      window.location.href = "/admin/dashboard.html";
     } else if (username === "user" && password === "123") {
       window.location.href = "/";
     } else {

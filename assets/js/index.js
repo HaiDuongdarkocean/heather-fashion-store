@@ -1,9 +1,25 @@
-import { products, categories, subcategories } from "./productInfo.js";
+import db from "./productInfo.js";
 import { initSearchDropdown, setupSlider } from "./util.js";
 
-window.products = products;
-window.categories = categories;
-window.subcategories = subcategories;
+window.db = db;
+
+const {
+  users,
+  categories,
+  subcategories,
+  products,
+  productVariants,
+  tags,
+  productTags,
+  discounts,
+  variantDiscounts,
+  cart,
+  cartItems,
+  shippingInfo,
+  orders,
+  orderItems,
+  productReviews,
+} = db;
 
 /*=== TÌM KIẾM SẢN PHẨM ===\
 * Hàm khởi tạo dropdown tìm kiếm sản phẩm

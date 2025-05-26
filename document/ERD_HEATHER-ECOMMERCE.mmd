@@ -1,11 +1,10 @@
-```mermaid
 ---
 config:
   theme: redux
 ---
 erDiagram
     User {
-        INT userId PK
+        VARCHAR userId PK
         VARCHAR username
         VARCHAR password
         VARCHAR email
@@ -17,19 +16,18 @@ erDiagram
         DATETIME updatedAt
     }
     Product {
-        INT productId PK
-        INT subcategoryId FK
+        VARCHAR productId PK
+        VARCHAR subcategoryId FK
         VARCHAR name
         TEXT description
         JSON imageUrls
         DATETIME createdAt
         DATETIME updatedAt
         BOOLEAN isActive
-        VARCHAR tags
     }
     ProductVariant {
-        INT productVariantId PK
-        INT productId FK
+        VARCHAR productVariantId PK
+        VARCHAR productId FK
         JSON_VARCHAR color
         JSON_VARCHAR size
         DECIMAL price
@@ -37,12 +35,24 @@ erDiagram
         JSON_VARCHAR imageUrls
         VARCHAR sku
         BOOLEAN isDefault
+        BOOLEAN isActive
         DATETIME createdAt
         DATETIME updatedAt
     }
+    Tags {
+        VARCHAR tagId PK
+        VARCHAR tagName
+        DATETIME createdAt
+        DATETIME updatedAt
+    }
+    productTags {
+        VARCHAR productTagId PK
+        VARCHAR productId FK
+        VARCHAR tagId FK
+    }
     Discount {
-        INT discountId PK
-        VARCHAR(255) name
+        VARCHAR discountId PK
+        VARCHAR name
         TEXT description
         INT discountPercent
         DATETIME startDate
@@ -52,57 +62,57 @@ erDiagram
         DATETIME updatedAt
     }
     VariantDiscount {
-        INT variantDiscountId PK
-        INT productVariantId FK
-        INT discountId FK
+        VARCHAR variantDiscountId PK
+        VARCHAR productVariantId FK
+        VARCHAR discountId FK
         DATETIME appliedAt
         DATETIME createdAt
         DATETIME updatedAt
     }
     Category {
-        INT categoryId PK
+        VARCHAR categoryId PK
         VARCHAR name
         TEXT description
         DATETIME createdAt
         DATETIME updatedAt
     }
     Subcategory {
-        INT subcategoryId PK
-        INT categoryId FK
+        VARCHAR subcategoryId PK
+        VARCHAR categoryId FK
         VARCHAR name
         TEXT description
         DATETIME createdAt
         DATETIME updatedAt
     }
     Cart {
-        INT cartId PK
-        INT userId FK
+        VARCHAR cartId PK
+        VARCHAR userId FK
         DATETIME createdAt
         DATETIME updatedAt
     }
     CartItem {
-        INT cartItemId PK
-        INT cartId FK
-        INT productVariantId FK
+        VARCHAR cartItemId PK
+        VARCHAR cartId FK
+        VARCHAR productVariantId FK
         INT quantity
         DATETIME createdAt
         DATETIME updatedAt
     }
     Order {
-        INT orderId PK
-        INT userId FK
+        VARCHAR orderId PK
+        VARCHAR userId FK
         DATETIME orderDate
         ENUM status
         DECIMAL totalAmount
-        INT shippingInfoId FK
+        VARCHAR shippingInfoId FK
         ENUM paymentStatus
         DATETIME createdAt
         DATETIME updatedAt
     }
     OrderItem {
-        INT orderItemId PK
-        INT orderId FK
-        INT productVariantId FK
+        VARCHAR orderItemId PK
+        VARCHAR orderId FK
+        VARCHAR productVariantId FK
         INT quantity
         DECIMAL unitPrice
         DECIMAL totalPrice
@@ -110,8 +120,8 @@ erDiagram
         DATETIME updatedAt
     }
     ShippingInfo {
-        INT shippingInfoId PK
-        INT orderId FK
+        VARCHAR shippingInfoId PK
+        VARCHAR orderId FK
         VARCHAR recipientName
         VARCHAR address
         VARCHAR phoneNumber
@@ -120,9 +130,9 @@ erDiagram
         DATETIME updatedAt
     }
     ProductReview {
-        INT productReviewId PK
-        INT userId FK
-        INT productId FK
+        VARCHAR productReviewId PK
+        VARCHAR userId FK
+        VARCHAR productId FK
         INT rating
         TEXT comment
         DATETIME createdAt
@@ -135,6 +145,8 @@ erDiagram
     ProductVariant ||--o{ VariantDiscount : has
     VariantDiscount }o--|| Discount : applies
     Product }o--|| Subcategory : belongs_to
+    Product ||--o{ productTags : tagged_with
+    Tags ||--o{ productTags : associates
     Subcategory }o--|| Category : belongs_to
     Cart ||--o{ CartItem : contains
     CartItem }o--|| ProductVariant : includes
@@ -142,5 +154,3 @@ erDiagram
     OrderItem }o--|| ProductVariant : includes
     Order ||--|| ShippingInfo : ships_to
     ProductReview }o--|| Product : reviews
-
-```
