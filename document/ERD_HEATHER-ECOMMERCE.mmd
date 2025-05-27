@@ -3,6 +3,7 @@ config:
   theme: redux
 ---
 erDiagram
+    %% USER & AUTH
     User {
         VARCHAR userId PK
         VARCHAR username
@@ -11,7 +12,101 @@ erDiagram
         VARCHAR fullName
         VARCHAR phoneNumber
         VARCHAR address
-        ENUM role
+        BOOLEAN isActive
+        BOOLEAN isEmailVerified
+        BOOLEAN isPhoneVerified
+        BOOLEAN isDeleted
+        INT failLoginAttempts
+        DATETIME lastLogin
+        DATETIME createdAt
+        DATETIME updatedAt
+    }
+    Roles {
+        VARCHAR roleId PK
+        VARCHAR roleName
+        TEXT description
+        DATETIME createdAt
+        DATETIME updatedAt
+    }
+    UserRoles {
+        VARCHAR userId FK
+        VARCHAR roleId FK
+    }
+    permissions {
+        VARCHAR permissionId PK
+        VARCHAR permissionName
+        TEXT description
+        DATETIME createdAt
+        DATETIME updatedAt
+    }
+    RolePermissions {
+        VARCHAR roleId FK
+        VARCHAR permissionId FK
+    }
+
+    %% AUDIT & LOG
+    auditLog {
+        VARCHAR auditLogId PK
+        VARCHAR userId FK
+        VARCHAR action
+        VARCHAR entityType
+        VARCHAR entityId
+        TEXT description
+        DATETIME actionDate
+        VARCHAR ipAddress
+        VARCHAR userAgent
+        DATETIME createdAt
+    }
+    AuditDiff {
+        VARCHAR auditDiffId PK
+        VARCHAR auditLogId FK
+        VARCHAR fieldName
+        TEXT beforeValue
+        TEXT afterValue
+        DATETIME createdAt
+    }
+    UserEventLog {
+        VARCHAR eventId PK
+        VARCHAR userId FK
+        ENUM eventType "CLICK, SCROLL, SEARCH, VIEW"
+        VARCHAR target
+        TEXT metadata
+        VARCHAR page
+        TEXT referrer
+        TEXT userAgent
+        TEXT ipAddress
+        DATETIME eventTimestamp
+        DATETIME createdAt
+    }
+
+    %% CUSTOMER SEGMENT
+    CustomerSegment {
+        VARCHAR segmentId PK
+        VARCHAR segmentName
+        TEXT description
+        BOOLEAN isActive
+        DATETIME createdAt
+        DATETIME updatedAt
+    }
+    UserSegment {
+        VARCHAR userId FK
+        VARCHAR segmentId FK
+        DATETIME assignedAt
+    }
+
+    %% PRODUCT & CATALOG
+    Category {
+        VARCHAR categoryId PK
+        VARCHAR name
+        TEXT description
+        DATETIME createdAt
+        DATETIME updatedAt
+    }
+    Subcategory {
+        VARCHAR subcategoryId PK
+        VARCHAR categoryId FK
+        VARCHAR name
+        TEXT description
         DATETIME createdAt
         DATETIME updatedAt
     }
@@ -50,6 +145,27 @@ erDiagram
         VARCHAR productId FK
         VARCHAR tagId FK
     }
+
+    %% COLLECTIONS
+    Collection {
+        VARCHAR collectionId PK
+        VARCHAR name
+        VARCHAR slug
+        TEXT description
+        BOOLEAN isActive
+        DATETIME createdAt
+        DATETIME updatedAt
+    }
+    CollectionProduct {
+        VARCHAR collectionProductId PK
+        VARCHAR collectionId FK
+        VARCHAR productId FK
+        INT sortOrder
+        DATETIME createdAt
+        DATETIME updatedAt
+    }
+
+    %% DISCOUNT
     Discount {
         VARCHAR discountId PK
         VARCHAR name
@@ -69,21 +185,8 @@ erDiagram
         DATETIME createdAt
         DATETIME updatedAt
     }
-    Category {
-        VARCHAR categoryId PK
-        VARCHAR name
-        TEXT description
-        DATETIME createdAt
-        DATETIME updatedAt
-    }
-    Subcategory {
-        VARCHAR subcategoryId PK
-        VARCHAR categoryId FK
-        VARCHAR name
-        TEXT description
-        DATETIME createdAt
-        DATETIME updatedAt
-    }
+
+    %% CART & ORDER
     Cart {
         VARCHAR cartId PK
         VARCHAR userId FK
@@ -129,6 +232,8 @@ erDiagram
         DATETIME createdAt
         DATETIME updatedAt
     }
+
+    %% REVIEW
     ProductReview {
         VARCHAR productReviewId PK
         VARCHAR userId FK
@@ -138,19 +243,103 @@ erDiagram
         DATETIME createdAt
         DATETIME updatedAt
     }
-    User ||--|| Cart : has
-    User ||--o{ Order : places
-    User ||--o{ ProductReview : writes
+
+    %% BLOG & CMS
+    BlogCategory {
+        VARCHAR categoryId PK
+        VARCHAR categoryName
+        VARCHAR slug
+        TEXT description
+        BOOLEAN isActive
+        DATETIME createdAt
+        DATETIME updatedAt
+    }
+    Blog {
+        VARCHAR blogId PK
+        VARCHAR title
+        VARCHAR slug
+        VARCHAR thumbnailUrl
+        TEXT content
+        VARCHAR authorId FK
+        BOOLEAN isPublished
+        DATETIME publishedAt
+        DATETIME createdAt
+        DATETIME updatedAt
+    }
+    BlogTag {
+        VARCHAR tagId PK
+        VARCHAR tagName
+        VARCHAR slug
+        DATETIME createdAt
+        DATETIME updatedAt
+    }
+    BlogTagMap {
+        VARCHAR blogId FK
+        VARCHAR tagId FK
+        DATETIME createdAt
+    }
+    Comment {
+        VARCHAR commentId PK
+        VARCHAR blogId FK
+        VARCHAR userId FK
+        TEXT content
+        VARCHAR parentId FK
+        BOOLEAN isApproved
+        DATETIME createdAt
+        DATETIME updatedAt
+    }
+
+    %% BANNER
+    Banner {
+        VARCHAR bannerId PK
+        VARCHAR collectionId FK
+        VARCHAR title
+        TEXT description
+        VARCHAR imageUrl
+        VARCHAR linkUrl
+        ENUM targetType
+        VARCHAR targetId
+        VARCHAR position
+        BOOLEAN isActive
+        DATETIME startDate
+        DATETIME endDate
+        DATETIME createdAt
+        DATETIME updatedAt
+    }
+
+    %% RELATIONSHIPS
+    User ||--o{ UserRoles : has
+    UserRoles ||--o{ Roles : has
+    Roles ||--o{ RolePermissions : has
+    permissions ||--o{ RolePermissions : has
+    User ||--o{ auditLog : performs
+    auditLog ||--o{ AuditDiff : has
+    User ||--o{ UserEventLog : logs
+    User ||--o{ UserSegment : tagged_with
+    CustomerSegment ||--o{ UserSegment : has
+    Product }o--|| Subcategory : belongs_to
+    Subcategory }o--|| Category : belongs_to
     Product ||--|{ ProductVariant : has
     ProductVariant ||--o{ VariantDiscount : has
     VariantDiscount }o--|| Discount : applies
-    Product }o--|| Subcategory : belongs_to
     Product ||--o{ productTags : tagged_with
     Tags ||--o{ productTags : associates
-    Subcategory }o--|| Category : belongs_to
+    Collection ||--o{ CollectionProduct : contains
+    CollectionProduct }o--|| Product : includes
     Cart ||--o{ CartItem : contains
     CartItem }o--|| ProductVariant : includes
+    User ||--|| Cart : has
+    User ||--o{ Order : places
     Order ||--|{ OrderItem : contains
     OrderItem }o--|| ProductVariant : includes
     Order ||--|| ShippingInfo : ships_to
+    User ||--o{ ProductReview : writes
     ProductReview }o--|| Product : reviews
+    User ||--o{ Blog : writes
+    BlogCategory ||--o{ Blog : contains
+    Blog ||--o{ BlogTagMap : has
+    BlogTag ||--o{ BlogTagMap : tagged_with
+    Blog ||--o{ Comment : receives
+    Comment ||--o{ Comment : replies_to
+    User ||--o{ Comment : writes
+    Banner ||--o| Collection : links_to

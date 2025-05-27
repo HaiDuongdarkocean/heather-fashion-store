@@ -226,7 +226,6 @@ const products = [
   //   updatedAt: "2025-05-10T12:00:00Z",
   // },
 ];
-
 const productVariants = [
   // Biến thể của p01
   {
@@ -1036,7 +1035,6 @@ const productReviews = [
     updatedAt: "2025-05-01T10:00:00Z",
   },
 ];
-
 export default {
   users,
   categories,
